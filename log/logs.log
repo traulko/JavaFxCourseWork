@@ -1,0 +1,3 @@
+2020-11-25 19:35:58 [Thread-4] FATAL traulko.course.dao.connection.ConnectionPool - Error during connection pool creating
+2020-11-25 19:39:39 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-11-25 20:00:20 [Thread-10] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled

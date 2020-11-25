@@ -1,31 +1,21 @@
 package com.traulko.course.server;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
-
 public class CustomServer {
+    public static final int PORT_WORK = 8080;
+    public static final int PORT_STOP = 9002;
+
     public static void main(String[] args) {
-        try (ServerSocket serverSocket = new ServerSocket(8080)) {
-            System.out.println("Server started!");
-            while (true) {
-                ServerConnection serverConnection = new ServerConnection(serverSocket);
-                new Thread(() -> {
-                    String request = serverConnection.readLine();
-                    System.out.println(request);
-                    String response = "1";
-                    serverConnection.writeLine(response);
-                    System.out.println(response);
-                    try {
-                        serverConnection.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }).start();
-            }
-        } catch (IOException e) {
+        MultiThreadedServer server = new MultiThreadedServer(PORT_WORK);
+        new Thread(server).start();
+        try {
+            Thread monitor = new StopMonitor(PORT_STOP);
+            monitor.start();
+            monitor.join();
+            System.out.println("Right after join.....");
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Stopping Server");
+        server.stop();
     }
 }
