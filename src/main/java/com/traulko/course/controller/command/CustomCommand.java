@@ -14,7 +14,7 @@ public interface CustomCommand {
      * Execute command.
      *
      * @param request the request
-     * @return the String containing page path
+     * @return the Batch
      */
-    String execute(Batch request);
+    Batch execute(Batch request);
 }

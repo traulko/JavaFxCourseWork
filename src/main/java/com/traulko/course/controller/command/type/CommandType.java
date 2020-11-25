@@ -1,6 +1,7 @@
 package com.traulko.course.controller.command.type;
 
 import com.traulko.course.controller.command.CustomCommand;
+import com.traulko.course.controller.command.impl.SignUpCommand;
 import com.traulko.course.controller.command.impl.SingInCommand;
 
 /**
@@ -10,7 +11,8 @@ import com.traulko.course.controller.command.impl.SingInCommand;
  * @version 1.0
  */
 public enum CommandType {
-    SIGN_IN(new SingInCommand());
+    SIGN_IN(new SingInCommand()),
+    SIGN_UP(new SignUpCommand());
 
     private final CustomCommand command;
 

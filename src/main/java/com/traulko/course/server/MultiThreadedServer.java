@@ -29,9 +29,7 @@ public class MultiThreadedServer implements Runnable {
                 throw new RuntimeException("Error accepting client connection", e);
             }
             try {
-                new Thread(
-                        new Worker(clientSocket)
-                ).start();
+                new Thread(new Worker(clientSocket)).start();
             } catch (IOException e) {
                 e.printStackTrace();
             }

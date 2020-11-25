@@ -1,3 +1,14 @@
 2020-11-25 19:35:58 [Thread-4] FATAL traulko.course.dao.connection.ConnectionPool - Error during connection pool creating
 2020-11-25 19:39:39 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
 2020-11-25 20:00:20 [Thread-10] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-11-25 21:26:04 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-11-26 00:20:00 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-11-26 02:02:23 [Thread-2] ERROR traulko.course.controller.command.CommandProvider - Incorrect command type sign_up
+java.lang.IllegalArgumentException: No enum constant com.traulko.course.controller.command.type.CommandType.SIGN_UP
+	at java.lang.Enum.valueOf(Enum.java:273) ~[?:?]
+	at com.traulko.course.controller.command.type.CommandType.valueOf(CommandType.java:12) ~[classes/:?]
+	at com.traulko.course.controller.command.CommandProvider.defineCommand(CommandProvider.java:32) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:26) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2020-11-26 02:29:51 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-11-26 02:40:28 [Thread-3] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled

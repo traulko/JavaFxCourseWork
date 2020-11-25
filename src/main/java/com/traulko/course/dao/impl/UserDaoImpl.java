@@ -22,6 +22,8 @@ public class UserDaoImpl implements UserDao {
     private static final String FIND_USER_BY_EMAIL = "SELECT user_id, user_email, " +
             "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
             " FROM users WHERE user_email = ?";
+    private static final String ADD_USER = "INSERT INTO users (user_email, user_password, user_name," +
+            " user_surname, user_patronymic, user_role, user_status) values (?, ?, ?, ?, ?, ?, ?)";
 
     private UserDaoImpl() {
     }
@@ -33,6 +35,23 @@ public class UserDaoImpl implements UserDao {
      */
     public static UserDaoImpl getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public boolean add(User user, String encryptedPassword) throws DaoException {
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(ADD_USER)) {
+            statement.setString(1, user.getEmail());
+            statement.setString(2, encryptedPassword);
+            statement.setString(3, user.getName());
+            statement.setString(4, user.getSurname());
+            statement.setString(5, user.getPatronymic());
+            statement.setString(6, user.getRole().toString());
+            statement.setString(7, user.getStatus().toString());
+            return statement.executeUpdate() > 0;
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Adding user to users table error", e);
+        }
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.traulko.course.client.fxml;
+package com.traulko.course.client.fxml.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -20,7 +20,8 @@ public class PageManager {
 
         Parent root = loader.getRoot();
         Stage stage = new Stage();
-        stage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
         stage.show();
     }
 }

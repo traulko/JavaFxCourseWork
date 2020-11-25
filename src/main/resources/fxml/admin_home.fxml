@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A3A8FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.traulko.course.client.fxml.AdminHomePage">
+    <children>
+        <Text layoutX="283.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" />
+    </children>
+</AnchorPane>

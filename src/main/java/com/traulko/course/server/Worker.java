@@ -25,7 +25,7 @@ public class Worker implements Runnable {
             String batchCommand = requestBatch.getBatchMap().get(RequestParameter.COMMAND_NAME).toString();
             Optional<CustomCommand> commandOptional = CommandProvider.defineCommand(batchCommand);
             CustomCommand command = commandOptional.orElseThrow(IllegalArgumentException::new);
-            String responseBatch = command.execute(requestBatch);
+            Batch responseBatch = command.execute(requestBatch);
             outputStream.writeObject(responseBatch);
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
