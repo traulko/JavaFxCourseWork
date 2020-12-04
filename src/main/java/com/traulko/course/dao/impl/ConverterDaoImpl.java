@@ -4,11 +4,9 @@ import com.traulko.course.dao.ColumnName;
 import com.traulko.course.dao.ConverterDao;
 import com.traulko.course.dao.connection.ConnectionPool;
 import com.traulko.course.entity.CustomConverter;
-import com.traulko.course.entity.User;
 import com.traulko.course.exception.ConnectionDatabaseException;
 import com.traulko.course.exception.DaoException;
 
-import javax.xml.crypto.Data;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -114,7 +112,7 @@ public class ConverterDaoImpl implements ConverterDao {
             statement.setDouble(4, converter.getRubValue());
             Date creationDate = Date.valueOf(converter.getCreationDate());
             statement.setLong(5, creationDate.getTime());
-            return statement.execute();
+            return statement.executeUpdate() > 0;
         } catch (SQLException | ConnectionDatabaseException e) {
             throw new DaoException("Error while adding converter", e);
         }

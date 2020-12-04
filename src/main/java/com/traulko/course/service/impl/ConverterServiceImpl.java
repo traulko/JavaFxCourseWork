@@ -19,6 +19,7 @@ public class ConverterServiceImpl implements ConverterService {
     private final ConverterDao converterDao = ConverterDaoImpl.getInstance();
 
     private static final int STEPS_COUNT = 5;
+    private static final int DEFAULT_BYN_CONVERTER_VALUE = 1;
 
     @Override
     public double calculateConvertedResult(String value, String fromCurrencyParameter,
@@ -37,20 +38,18 @@ public class ConverterServiceImpl implements ConverterService {
     }
 
     @Override
-    public boolean addConverter(String bynValue, String usdValue, String eurValue, String rubValue) throws ServiceException {
+    public boolean addConverter(String usdValue, String eurValue, String rubValue) throws ServiceException {
         boolean result = false;
         try {
-            if (ConverterValidator.isCurrencyValueValid(bynValue)
-                    && ConverterValidator.isCurrencyValueValid(usdValue)
+            if (ConverterValidator.isCurrencyValueValid(usdValue)
                     && ConverterValidator.isCurrencyValueValid(eurValue)
                     && ConverterValidator.isCurrencyValueValid(rubValue)) {
-                double bynParsedValue = Double.parseDouble(bynValue);
                 double usdParsedValue = Double.parseDouble(usdValue);
                 double eurParsedValue = Double.parseDouble(eurValue);
                 double rubParsedValue = Double.parseDouble(rubValue);
                 LocalDate creationDate = LocalDate.now();
                 ConverterBuilder converterBuilder = new ConverterBuilder();
-                converterBuilder.setBynValue(bynParsedValue);
+                converterBuilder.setBynValue(DEFAULT_BYN_CONVERTER_VALUE);
                 converterBuilder.setUsdValue(usdParsedValue);
                 converterBuilder.setEurValue(eurParsedValue);
                 converterBuilder.setRubValue(rubParsedValue);

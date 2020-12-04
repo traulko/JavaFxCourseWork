@@ -45,9 +45,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean add(User user, String encryptedPassword) throws DaoException {
-        try (Connection connection = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(ADD_USER)) {
+    public boolean add(User user, String encryptedPassword, Connection connection) throws DaoException {
+        try (PreparedStatement statement = connection.prepareStatement(ADD_USER)) {
             statement.setString(1, user.getEmail());
             statement.setString(2, encryptedPassword);
             statement.setString(3, user.getName());
@@ -56,7 +55,7 @@ public class UserDaoImpl implements UserDao {
             statement.setString(6, user.getRole().toString());
             statement.setString(7, user.getStatus().toString());
             return statement.executeUpdate() > 0;
-        } catch (SQLException | ConnectionDatabaseException e) {
+        } catch (SQLException e) {
             throw new DaoException("Adding user to users table error", e);
         }
     }

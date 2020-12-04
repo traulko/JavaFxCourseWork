@@ -1,25 +1,27 @@
 package com.traulko.course.service.impl;
 
+import com.traulko.course.builder.EntityTokenBuilder;
 import com.traulko.course.builder.UserBuilder;
 import com.traulko.course.controller.RequestParameter;
+import com.traulko.course.dao.TransactionManager;
 import com.traulko.course.dao.UserDao;
 import com.traulko.course.dao.impl.UserDaoImpl;
+import com.traulko.course.entity.EntityToken;
 import com.traulko.course.entity.User;
 import com.traulko.course.exception.DaoException;
 import com.traulko.course.exception.ServiceException;
+import com.traulko.course.exception.TransactionException;
 import com.traulko.course.service.UserService;
 import com.traulko.course.util.CustomCipher;
 import com.traulko.course.validator.UserValidator;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class UserServiceImpl implements UserService {
     private static final String EMPTY_VALUE = "";
     private final UserDao userDao = UserDaoImpl.getInstance();
+    private final TransactionManager transactionManager = TransactionManager.getInstance();
 
     @Override
     public boolean isUserExists(String email, String password) {
@@ -105,8 +107,11 @@ public class UserServiceImpl implements UserService {
                     userBuilder.setRole(User.Role.USER);
                     userBuilder.setStatus(User.Status.ENABLE);
                     User user = userBuilder.getUser();
-                    result = userDao.add(user, encryptedPassword);
-                } catch (DaoException | NoSuchAlgorithmException e) {
+                    EntityTokenBuilder entityTokenBuilder = new EntityTokenBuilder();
+                    entityTokenBuilder.setTokenUuid(UUID.randomUUID().toString());
+                    EntityToken entityToken = entityTokenBuilder.getToken();
+                    result = transactionManager.addUserAndToken(user, encryptedPassword, entityToken);
+                } catch (NoSuchAlgorithmException | TransactionException e) {
                     throw new ServiceException("Error while adding user", e);
                 }
             } else {

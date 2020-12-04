@@ -10,7 +10,7 @@ public interface ConverterService {
     double calculateConvertedResult(String value, String fromCurrencyParameter,
                                     String toCurrencyParameter) throws ServiceException;
 
-    boolean addConverter(String bynValue, String usdValue, String eurValue, String rubValue) throws ServiceException;
+    boolean addConverter(String usdValue, String eurValue, String rubValue) throws ServiceException;
 
     List<CustomConverter> findAllConverters() throws ServiceException;
 

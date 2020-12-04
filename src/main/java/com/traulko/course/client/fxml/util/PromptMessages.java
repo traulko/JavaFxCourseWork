@@ -18,5 +18,7 @@ public class PromptMessages {
     public static final String BLOCKING_ERROR = "Пользователь уже заблокирован";
     public static final String UNBLOCKING_SUCCESS = "Выбранный пользователь разблокирован";
     public static final String UNBLOCKING_ERROR = "Пользователь не является заблокированным";
+    public static final String CONVERTER_ADD_SUCCESS = "Новый курс валют успешно установлен";
+    public static final String CONVERTER_ADD_ERROR = "Ошибка установки нового курса валют";
 
 }

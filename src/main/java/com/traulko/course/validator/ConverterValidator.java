@@ -8,7 +8,7 @@ package com.traulko.course.validator;
  * @version 1.0
  */
 public class ConverterValidator {
-    private static final String CURRENCY_VALUE_REGEX = "^[1-9]\\d{0,6}(\\.\\d{0,2})?$";
+    private static final String CURRENCY_VALUE_REGEX = "^[0-9]\\d{0,6}(\\.\\d{0,2})?$";
 
     /**
      * Check price for valid.
