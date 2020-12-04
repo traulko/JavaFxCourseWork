@@ -1,11 +1,15 @@
 package com.traulko.course.server;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.io.IOException;
 
 public class MultiThreadedServer implements Runnable {
-
+    private static final Logger LOGGER = LogManager.getLogger(MultiThreadedServer.class);
     protected int serverPort = 8080;
     protected ServerSocket serverSocket = null;
     protected boolean isStopped = false;
@@ -23,7 +27,7 @@ public class MultiThreadedServer implements Runnable {
                 clientSocket = this.serverSocket.accept();
             } catch (IOException e) {
                 if (isStopped()) {
-                    System.out.println("Server Stopped.");
+                    LOGGER.log(Level.INFO, "Server stopped");
                     return;
                 }
                 throw new RuntimeException("Error accepting client connection", e);
@@ -34,7 +38,7 @@ public class MultiThreadedServer implements Runnable {
                 e.printStackTrace();
             }
         }
-        System.out.println("Server Stopped.");
+        LOGGER.log(Level.INFO, "Server stopped");
     }
 
 
@@ -52,7 +56,6 @@ public class MultiThreadedServer implements Runnable {
     }
 
     private void openServerSocket() {
-        System.out.println("Opening server socket...");
         try {
             this.serverSocket = new ServerSocket(this.serverPort);
         } catch (IOException e) {

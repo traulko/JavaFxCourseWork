@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="543.0" prefWidth="736.0" style="-fx-background-color: #A3A8FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.traulko.course.client.fxml.CurrencyConverterManagePage">
+    <children>
+        <Button fx:id="goBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Назад">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <TableView fx:id="converterTable" layoutX="24.0" layoutY="81.0" prefHeight="350.0" prefWidth="686.0">
+            <columns>
+                <TableColumn fx:id="bynColumn" prefWidth="131.2000732421875" text="BYN" />
+                <TableColumn fx:id="usdColumn" prefWidth="126.39996337890625" text="USD" />
+                <TableColumn fx:id="eurColumn" prefWidth="112.00006103515625" text="EUR" />
+                <TableColumn fx:id="rubColumn" prefWidth="131.199951171875" text="RUB" />
+                <TableColumn fx:id="dateColumn" prefWidth="186.39996337890625" text="Дата " />
+            </columns>
+        </TableView>
+        <Button fx:id="addNewConverter" layoutX="24.0" layoutY="469.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Добавить новый курс">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

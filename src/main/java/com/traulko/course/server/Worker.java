@@ -4,6 +4,9 @@ import com.traulko.course.controller.RequestParameter;
 import com.traulko.course.controller.command.CommandProvider;
 import com.traulko.course.controller.command.CustomCommand;
 import com.traulko.course.entity.Batch;
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.net.Socket;
@@ -11,6 +14,7 @@ import java.util.Optional;
 
 
 public class Worker implements Runnable {
+    private static final Logger LOGGER = LogManager.getLogger(Worker.class);
     private final ObjectOutputStream outputStream;
     private final ObjectInputStream inputStream;
 
@@ -28,7 +32,7 @@ public class Worker implements Runnable {
             Batch responseBatch = command.execute(requestBatch);
             outputStream.writeObject(responseBatch);
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, "Error while running worker", e);
         } finally {
             disconnect();
         }
@@ -39,7 +43,7 @@ public class Worker implements Runnable {
             outputStream.close();
             inputStream.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.ERROR, "Error while disconnecting", e);
         }
     }
 }

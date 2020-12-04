@@ -10,6 +10,7 @@ public class Batch implements Serializable {
     public Batch() {
         this.batchMap = new HashMap<>();
     }
+
     public Batch(Map<String, Object> batchMap) {
         this.batchMap = batchMap;
     }

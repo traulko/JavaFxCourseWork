@@ -19,7 +19,7 @@ import java.util.Optional;
 
 public class SignUpCommand implements CustomCommand {
     private static final UserService userService = new UserServiceImpl();
-    private static final Logger LOGGER = LogManager.getLogger(SingInCommand.class);
+    private static final Logger LOGGER = LogManager.getLogger(SignUpCommand.class);
 
     @Override
     public Batch execute(Batch requestBatch) {

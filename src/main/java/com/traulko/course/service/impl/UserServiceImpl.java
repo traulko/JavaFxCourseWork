@@ -12,6 +12,8 @@ import com.traulko.course.util.CustomCipher;
 import com.traulko.course.validator.UserValidator;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -44,6 +46,43 @@ public class UserServiceImpl implements UserService {
             throw new ServiceException("Error while getting user by email", e);
         }
         return optionalUser;
+    }
+
+    @Override
+    public boolean blockUser(String email) throws ServiceException {
+        boolean result = false;
+        try {
+            if (UserValidator.isEmailValid(email)) {
+                result = userDao.block(email);
+            }
+        } catch (DaoException e) {
+            throw new ServiceException("Error while blocking user", e);
+        }
+        return result;
+    }
+
+    @Override
+    public boolean unblockUser(String email) throws ServiceException {
+        boolean result = false;
+        try {
+            if (UserValidator.isEmailValid(email)) {
+                result = userDao.unblock(email);
+            }
+        } catch (DaoException e) {
+            throw new ServiceException("Error while unblocking user", e);
+        }
+        return result;
+    }
+
+    @Override
+    public List<User> findAllUsers() throws ServiceException {
+        List<User> userList = new ArrayList<>();
+        try {
+            userList = userDao.findAll();
+        } catch (DaoException e) {
+            throw new ServiceException("Error while finding all users", e);
+        }
+        return userList;
     }
 
     @Override

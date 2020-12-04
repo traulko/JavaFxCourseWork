@@ -1,12 +1,14 @@
 package com.traulko.course.entity;
 
+import java.io.Serializable;
+
 /**
  * The {@code User} class represents User entity.
  *
  * @author Yan Traulko
  * @version 1.0
  */
-public class User {
+public class User implements Serializable {
     public enum Role {
         ADMIN, USER;
     }

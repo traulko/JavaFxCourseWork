@@ -1,8 +1,7 @@
 package com.traulko.course.controller.command.type;
 
 import com.traulko.course.controller.command.CustomCommand;
-import com.traulko.course.controller.command.impl.SignUpCommand;
-import com.traulko.course.controller.command.impl.SingInCommand;
+import com.traulko.course.controller.command.impl.*;
 
 /**
  * The {@code CommandType} enum represents command type.
@@ -12,7 +11,15 @@ import com.traulko.course.controller.command.impl.SingInCommand;
  */
 public enum CommandType {
     SIGN_IN(new SingInCommand()),
-    SIGN_UP(new SignUpCommand());
+    SIGN_UP(new SignUpCommand()),
+    CONVERT_VALUE(new ConvertValueCommand()),
+    CONVERTER_RATIOS(new ConverterRatiosCommand()),
+    FIND_USERS(new FindUsersCommand()),
+    BLOCK_USER(new BlockUserCommand()),
+    UNBLOCK_USER(new UnblockUserCommand()),
+    FIND_CONVERTERS(new FindConvertersCommand()),
+    FIND_LATEST_CONVERTER(new FindLatestConverterCommand()),
+    ADD_CONVERTER(new AddConverterCommand());
 
     private final CustomCommand command;
 

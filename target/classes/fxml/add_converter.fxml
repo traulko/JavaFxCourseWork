@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.traulko.course.client.fxml.AddConverterPage">
+    <columnConstraints>
+        <ColumnConstraints />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+    </rowConstraints>
+    <children>
+        <AnchorPane prefHeight="327.0" prefWidth="700.0" style="-fx-background-color: #A3A8FF;">
+            <children>
+                <Text layoutX="216.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Добавление нового курса">
+                    <font>
+                        <Font name="System Italic" size="23.0" />
+                    </font>
+                </Text>
+                <TextField fx:id="eurField" layoutX="448.0" layoutY="136.0" style="-fx-background-color: #8386CC;" />
+                <Button fx:id="addButton" layoutX="297.0" layoutY="253.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Добавить">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Text layoutX="407.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EUR" />
+                <TextField fx:id="usdField" layoutX="116.0" layoutY="137.0" style="-fx-background-color: #8386CC;" />
+                <TextField fx:id="rubField" layoutX="116.0" layoutY="195.0" style="-fx-background-color: #8386CC;" />
+                <Text layoutX="76.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USD" />
+                <Text layoutX="76.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RUB" />
+                <Button fx:id="goBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Назад">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+            <Text layoutX="116.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ВНИМАНИЕ! Курс для валют вводится по отношению к 1 BYN">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Text>
+            <Text layoutX="158.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Предыдущие значения находятся в полях для ввода">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Text>
+            </children>
+        </AnchorPane>
+    </children>
+</GridPane>

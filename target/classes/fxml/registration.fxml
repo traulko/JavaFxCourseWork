@@ -19,33 +19,33 @@
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #A3A8FF;">
             <children>
-                <Text layoutX="291.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration">
+                <Text layoutX="276.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Регистрация">
                     <font>
                         <Font name="System Italic" size="23.0" />
                     </font>
                 </Text>
                 <TextField fx:id="emailField" layoutX="448.0" layoutY="110.0" style="-fx-background-color: #8386CC;" />
                 <TextField fx:id="passwordField" layoutX="448.0" layoutY="169.0" style="-fx-background-color: #8386CC;" />
-                <Button fx:id="registerButton" layoutX="306.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Register">
+                <Button fx:id="registerButton" layoutX="254.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Зарегистрироваться">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
-                <Text layoutX="410.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
-                <Text layoutX="385.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+                <Text layoutX="407.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                <Text layoutX="394.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" />
                 <TextField fx:id="nameField" layoutX="116.0" layoutY="111.0" style="-fx-background-color: #8386CC;" />
                 <TextField fx:id="surnameField" layoutX="116.0" layoutY="169.0" style="-fx-background-color: #8386CC;" />
-                <Text layoutX="76.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-                <Text layoutX="59.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Surname" />
-                <Button fx:id="goBackButton" layoutX="26.0" layoutY="24.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Go back">
+                <Text layoutX="76.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Имя" />
+                <Text layoutX="51.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Фамилия" />
+                <Button fx:id="goBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Назад">
                     <font>
                         <Font size="18.0" />
                     </font>
                 </Button>
             <TextField fx:id="patronymicField" layoutX="116.0" layoutY="228.0" style="-fx-background-color: #8386CC;" />
             <TextField fx:id="passwordRepeatField" layoutX="448.0" layoutY="228.0" style="-fx-background-color: #8386CC;" />
-            <Text layoutX="346.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat password" />
-            <Text layoutX="46.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patronymic" />
+            <Text layoutX="334.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Повторите пароль" />
+            <Text layoutX="51.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Отчество" />
             </children>
         </AnchorPane>
     </children>

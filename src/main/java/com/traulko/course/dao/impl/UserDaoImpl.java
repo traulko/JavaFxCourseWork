@@ -11,6 +11,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
@@ -22,8 +24,13 @@ public class UserDaoImpl implements UserDao {
     private static final String FIND_USER_BY_EMAIL = "SELECT user_id, user_email, " +
             "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
             " FROM users WHERE user_email = ?";
+    private static final String FIND_ALL = "SELECT user_id, user_email, " +
+            "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
+            " FROM users";
     private static final String ADD_USER = "INSERT INTO users (user_email, user_password, user_name," +
             " user_surname, user_patronymic, user_role, user_status) values (?, ?, ?, ?, ?, ?, ?)";
+    private static final String BLOCK_USER = "UPDATE users set user_status = \'BLOCKED\' where user_email = ?";
+    private static final String UNBLOCK_USER = "UPDATE users set user_status = \'ENABLE\' where user_email = ?";
 
     private UserDaoImpl() {
     }
@@ -87,6 +94,44 @@ public class UserDaoImpl implements UserDao {
         } catch (SQLException | ConnectionDatabaseException e) {
             throw new DaoException("Finding user by email error", e);
         }
+    }
+
+    @Override
+    public boolean block(String email) throws DaoException {
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(BLOCK_USER)) {
+            statement.setString(1, email);
+            return statement.executeUpdate() > 0;
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Blocking user error", e);
+        }
+    }
+
+    @Override
+    public boolean unblock(String email) throws DaoException {
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(UNBLOCK_USER)) {
+            statement.setString(1, email);
+            return statement.executeUpdate() > 0;
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Unblocking user error", e);
+        }
+    }
+
+    @Override
+    public List<User> findAll() throws DaoException {
+        List<User> userList = new ArrayList<>();
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_ALL)) {
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                User user = createUserFromResultSet(resultSet);
+                userList.add(user);
+            }
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Finding all users error", e);
+        }
+        return userList;
     }
 
     private User createUserFromResultSet(ResultSet resultSet) throws SQLException {
