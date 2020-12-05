@@ -40,7 +40,6 @@ public class SignUpCommand implements CustomCommand {
         try {
             if (userService.addUser(registrationParameters)) {
                 page = PagePath.AUTHORIZATION;
-                // TODO: 26.11.2020 send message
             } else {
                 page = PagePath.REGISTRATION;
             }

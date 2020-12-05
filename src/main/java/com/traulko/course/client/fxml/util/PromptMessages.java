@@ -8,6 +8,7 @@ public class PromptMessages {
     public static final String SUCCESS = "Успешно выполнено";
     public static final String REGISTRATION_SUCCESS = "Вы были успешно зарегистрированны";
     public static final String INCORRECT_LOGIN_OR_PASSWORD = "Неправильный логин или пароль";
+    public static final String INCORRECT_EMAIL = "Почта не соответствует нужному формату";
     public static final String EMPTY_FIELDS = "Одно или несколько полей пустые";
     public static final String EMPTY_FIELD = "Пустое поле. Заполните его";
     public static final String INCORRECT_REGISTRATION_DATA = "Некорректные данные. Некорректные поля очищены";
@@ -20,5 +21,8 @@ public class PromptMessages {
     public static final String UNBLOCKING_ERROR = "Пользователь не является заблокированным";
     public static final String CONVERTER_ADD_SUCCESS = "Новый курс валют успешно установлен";
     public static final String CONVERTER_ADD_ERROR = "Ошибка установки нового курса валют";
+    public static final String INCORRECT_EMAIL_OR_TOKEN = "Некорректная почта или токен";
+    public static final String INCORRECT_PASSWORDS = "Пароли не соответствуют формату или не одинаковы";
+    public static final String CHANGE_PASSWORD_SUCCESS = "Пароль успешно изменен";
 
 }

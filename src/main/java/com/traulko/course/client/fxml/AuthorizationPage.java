@@ -33,6 +33,9 @@ public class AuthorizationPage {
     private Button signUpButton;
 
     @FXML
+    private Button forgotPasswordButton;
+
+    @FXML
     void initialize() {
         emailField.setTooltip(CustomTooltip.makeBubblePrompt(new Tooltip(PromptMessages.CORRECT_EMAIL)));
         passwordField.setTooltip(CustomTooltip.makeBubblePrompt(new Tooltip(PromptMessages.CORRECT_PASSWORD)));
@@ -40,6 +43,11 @@ public class AuthorizationPage {
         signUpButton.setOnAction(event -> {
             signUpButton.getScene().getWindow().hide();
             PageManager.goToPage(PagePath.REGISTRATION);
+        });
+
+        forgotPasswordButton.setOnAction(actionEvent -> {
+            forgotPasswordButton.getScene().getWindow().hide();
+            PageManager.goToPage(PagePath.FORGOT_PASSWORD);
         });
 
         signInButton.setOnAction(new EventHandler<ActionEvent>() {

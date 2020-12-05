@@ -40,13 +40,13 @@ public class TransactionManager {
             connection.setAutoCommit(false);
             boolean result = entityTokenDao.add(token, connection);
             if (result) {
-                result = userDao.add(user, encryptedPassword, connection);
+                result = userDao.add(user, encryptedPassword, token.getTokenId(), connection);
             }
             connection.commit();
             return result;
         } catch (ConnectionDatabaseException | SQLException | DaoException e) {
             rollback(connection);
-            throw new TransactionException("Error while adding product and image " + user, e);
+            throw new TransactionException("Error while adding user and token " + user, e);
         } finally {
             close(connection);
         }

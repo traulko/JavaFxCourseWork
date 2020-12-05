@@ -41,11 +41,40 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Optional<User> findUserByEmail(String email) throws ServiceException {
-        Optional<User> optionalUser;
+        Optional<User> optionalUser = Optional.empty();
         try {
-            optionalUser = userDao.findByEmail(email);
+            if (UserValidator.isEmailValid(email)) {
+                optionalUser = userDao.findByEmail(email);
+            }
         } catch (DaoException e) {
             throw new ServiceException("Error while getting user by email", e);
+        }
+        return optionalUser;
+    }
+
+    @Override
+    public boolean updateUserPassword(String email, String password, String passwordRepeat) throws ServiceException {
+        boolean result = false;
+        try {
+            if (UserValidator.isEmailValid(email) && UserValidator.isPasswordValid(password)
+                    && password.equals(passwordRepeat)) {
+                String encryptedPassword = CustomCipher.encrypt(password);
+                result = userDao.updatePassword(email, encryptedPassword);
+            }
+        } catch (NoSuchAlgorithmException | DaoException e) {
+            throw new ServiceException("Error while updating user password", e);
+        }
+        return result;
+    }
+
+    @Override
+    public Optional<User> findUserByToken(String token) throws ServiceException {
+        Optional<User> optionalUser;
+        try {
+            String encryptedToken = CustomCipher.encrypt(token);
+            optionalUser = userDao.findByToken(encryptedToken);
+        } catch (DaoException | NoSuchAlgorithmException e) {
+            throw new ServiceException("Error while getting user by token", e);
         }
         return optionalUser;
     }
@@ -108,9 +137,14 @@ public class UserServiceImpl implements UserService {
                     userBuilder.setStatus(User.Status.ENABLE);
                     User user = userBuilder.getUser();
                     EntityTokenBuilder entityTokenBuilder = new EntityTokenBuilder();
-                    entityTokenBuilder.setTokenUuid(UUID.randomUUID().toString());
+                    String generatedToken = UUID.randomUUID().toString();
+                    String encryptedToken = CustomCipher.encrypt(generatedToken);
+                    entityTokenBuilder.setTokenUuid(encryptedToken);
                     EntityToken entityToken = entityTokenBuilder.getToken();
                     result = transactionManager.addUserAndToken(user, encryptedPassword, entityToken);
+                    if (result) {
+                        registrationParameters.put(RequestParameter.REGISTRATION_TOKEN, generatedToken);
+                    }
                 } catch (NoSuchAlgorithmException | TransactionException e) {
                     throw new ServiceException("Error while adding user", e);
                 }

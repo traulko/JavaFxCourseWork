@@ -12,6 +12,10 @@ public interface UserService {
 
     Optional<User> findUserByEmail(String email) throws ServiceException;
 
+    boolean updateUserPassword(String email, String password, String passwordRepeat) throws ServiceException;
+
+    Optional<User> findUserByToken(String token) throws ServiceException;
+
     boolean blockUser(String email) throws ServiceException;
 
     boolean unblockUser(String email) throws ServiceException;

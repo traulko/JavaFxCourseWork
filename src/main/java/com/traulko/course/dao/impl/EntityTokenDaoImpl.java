@@ -34,7 +34,7 @@ public class EntityTokenDaoImpl implements EntityTokenDao {
             }
             return result;
         } catch (SQLException e) {
-            throw new DaoException("Error while adding image", e);
+            throw new DaoException("Error while adding token", e);
         }
     }
 }

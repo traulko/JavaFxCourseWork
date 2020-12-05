@@ -19,7 +19,8 @@ public enum CommandType {
     UNBLOCK_USER(new UnblockUserCommand()),
     FIND_CONVERTERS(new FindConvertersCommand()),
     FIND_LATEST_CONVERTER(new FindLatestConverterCommand()),
-    ADD_CONVERTER(new AddConverterCommand());
+    ADD_CONVERTER(new AddConverterCommand()),
+    FORGOT_PASSWORD(new ForgotPasswordCommand());
 
     private final CustomCommand command;
 

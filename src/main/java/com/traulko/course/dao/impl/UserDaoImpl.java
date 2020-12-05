@@ -24,13 +24,17 @@ public class UserDaoImpl implements UserDao {
     private static final String FIND_USER_BY_EMAIL = "SELECT user_id, user_email, " +
             "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
             " FROM users WHERE user_email = ?";
+    private static final String FIND_USER_BY_TOKEN = "SELECT user_id, user_email, " +
+            "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
+            " FROM users INNER JOIN token ON user_token_id = token_id WHERE token_uuid = ?";
     private static final String FIND_ALL = "SELECT user_id, user_email, " +
             "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
             " FROM users";
     private static final String ADD_USER = "INSERT INTO users (user_email, user_password, user_name," +
-            " user_surname, user_patronymic, user_role, user_status) values (?, ?, ?, ?, ?, ?, ?)";
+            " user_surname, user_patronymic, user_role, user_status, user_token_id) values (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String BLOCK_USER = "UPDATE users set user_status = \'BLOCKED\' where user_email = ?";
     private static final String UNBLOCK_USER = "UPDATE users set user_status = \'ENABLE\' where user_email = ?";
+    private static final String UPDATE_PASSWORD = "UPDATE users set user_password = ? where user_email = ?";
 
     private UserDaoImpl() {
     }
@@ -45,7 +49,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean add(User user, String encryptedPassword, Connection connection) throws DaoException {
+    public boolean add(User user, String encryptedPassword, Integer tokenId, Connection connection) throws DaoException {
         try (PreparedStatement statement = connection.prepareStatement(ADD_USER)) {
             statement.setString(1, user.getEmail());
             statement.setString(2, encryptedPassword);
@@ -54,6 +58,7 @@ public class UserDaoImpl implements UserDao {
             statement.setString(5, user.getPatronymic());
             statement.setString(6, user.getRole().toString());
             statement.setString(7, user.getStatus().toString());
+            statement.setInt(8, tokenId);
             return statement.executeUpdate() > 0;
         } catch (SQLException e) {
             throw new DaoException("Adding user to users table error", e);
@@ -79,6 +84,18 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public boolean updatePassword(String email, String encryptedPassword) throws DaoException {
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(UPDATE_PASSWORD)) {
+            statement.setString(1, encryptedPassword);
+            statement.setString(2, email);
+            return statement.executeUpdate() > 0;
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Error while updating user password", e);
+        }
+    }
+
+    @Override
     public Optional<User> findByEmail(String email) throws DaoException {
         try (Connection connection = ConnectionPool.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_EMAIL)) {
@@ -92,6 +109,23 @@ public class UserDaoImpl implements UserDao {
             return userOptional;
         } catch (SQLException | ConnectionDatabaseException e) {
             throw new DaoException("Finding user by email error", e);
+        }
+    }
+
+    @Override
+    public Optional<User> findByToken(String token) throws DaoException {
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_TOKEN)) {
+            statement.setString(1, token);
+            ResultSet resultSet = statement.executeQuery();
+            Optional<User> userOptional = Optional.empty();
+            if (resultSet.next()) {
+                User user = createUserFromResultSet(resultSet);
+                userOptional = Optional.of(user);
+            }
+            return userOptional;
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Finding user by token error", e);
         }
     }
 

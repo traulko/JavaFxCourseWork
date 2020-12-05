@@ -92,9 +92,13 @@ public class RegistrationPage {
                         passwordRepeatField.setText(updatedRegistrationParameters
                                 .get(RequestParameter.USER_PASSWORD_REPEAT).toString());
                     } else {
+                        Map<String, Object> registrationParameters =
+                                (Map<String, Object>) responseBatch.getBatchMap()
+                                        .get(RequestParameter.REGISTRATION_PARAMETERS);
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle(PromptMessages.SUCCESS);
-                        alert.setContentText(PromptMessages.REGISTRATION_SUCCESS);
+                        alert.setContentText(PromptMessages.REGISTRATION_SUCCESS + "\n" + "Токен для восстановления: "
+                                + "\n" + registrationParameters.get(RequestParameter.REGISTRATION_TOKEN));
                         alert.showAndWait();
                         PageManager.goToPage(pagePath);
                         registerButton.getScene().getWindow().hide();

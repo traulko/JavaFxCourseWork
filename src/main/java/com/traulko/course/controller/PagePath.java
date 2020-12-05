@@ -15,6 +15,7 @@ public class PagePath {
     public static final String USERS_MANAGE = "/fxml/users_manage.fxml";
     public static final String CONVERTER_MANAGE = "/fxml/convert_manage.fxml";
     public static final String ADD_CONVERTER = "/fxml/add_converter.fxml";
+    public static final String FORGOT_PASSWORD = "/fxml/forgot_password.fxml";
 
     private PagePath() {
     }

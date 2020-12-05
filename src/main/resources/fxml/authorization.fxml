@@ -31,7 +31,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="signUpButton" layoutX="257.0" layoutY="302.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Зарегистрироваться">
+            <Button fx:id="signUpButton" layoutX="257.0" layoutY="280.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Зарегистрироваться">
                <font>
                   <Font size="18.0" />
                </font>
@@ -39,6 +39,11 @@
             <Text layoutX="216.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
             <Text layoutX="202.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Пароль" />
             <PasswordField fx:id="passwordField" layoutX="257.0" layoutY="169.0" prefHeight="26.0" prefWidth="191.0" style="-fx-background-color: #8386CC;" />
+            <Button fx:id="forgotPasswordButton" layoutX="280.0" layoutY="334.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Забыл пароль">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
    </children>

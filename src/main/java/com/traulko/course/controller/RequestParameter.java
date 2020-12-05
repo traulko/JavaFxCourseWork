@@ -19,6 +19,7 @@ public class RequestParameter {
     public static final String USER_PASSWORD_REPEAT = "userPasswordRepeat";
     public static final String USER_LIST = "userList";
     public static final String REGISTRATION_PARAMETERS = "registrationParameters";
+    public static final String REGISTRATION_TOKEN = "registrationToken";
 
     public static final String BYN_CURRENCY = "byn";
     public static final String USD_CURRENCY = "usd";
@@ -48,6 +49,7 @@ public class RequestParameter {
     public static final String FIND_CONVERTERS = "find_converters";
     public static final String FIND_LATEST_CONVERTER = "find_latest_converter";
     public static final String ADD_CONVERTER = "add_converter";
+    public static final String FORGOT_PASSWORD = "forgot_password";
 
     private RequestParameter() {
     }
