@@ -97,7 +97,8 @@ public class RegistrationPage {
                                         .get(RequestParameter.REGISTRATION_PARAMETERS);
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle(PromptMessages.SUCCESS);
-                        alert.setContentText(PromptMessages.REGISTRATION_SUCCESS + "\n" + "Токен для восстановления: "
+                        alert.setContentText(PromptMessages.REGISTRATION_SUCCESS + "\n"
+                                + PromptMessages.TOKEN_FOR_RESTORE_ACCESS
                                 + "\n" + registrationParameters.get(RequestParameter.REGISTRATION_TOKEN));
                         alert.showAndWait();
                         PageManager.goToPage(pagePath);

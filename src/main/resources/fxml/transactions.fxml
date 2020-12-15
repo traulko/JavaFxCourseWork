@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="289.0" prefWidth="574.0" style="-fx-background-color: #A3A8FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.traulko.course.client.fxml.TransactionsPage">
+    <children>
+        <Button fx:id="goBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Назад">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <TableView fx:id="transactionsTable" layoutX="33.0" layoutY="91.0" prefHeight="175.0" prefWidth="507.0">
+            <columns>
+                <TableColumn fx:id="transactionFromAccountColumn" prefWidth="108.79998016357422" text="Со счета" />
+                <TableColumn fx:id="transactionToAccountColumn" prefWidth="114.4000244140625" text="На счет" />
+                <TableColumn fx:id="transactionMoneyAmountColumn" prefWidth="130.39996337890625" text="Количество денег" />
+                <TableColumn fx:id="transactionDateColumn" prefWidth="156.0" text="Дата" />
+            </columns>
+        </TableView>
+        <Text layoutX="33.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Транзакции">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>

@@ -1,0 +1,287 @@
+2020-12-05 06:04:14 [Thread-3] ERROR course.controller.command.impl.SignUpCommand - Error while login user
+com.traulko.course.exception.ServiceException: Error while adding user
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:118) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.SignUpCommand.execute(SignUpCommand.java:41) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding product and image User{userId=null, name='Траулько', surname='Ян', patronymic='Станиславович', email='admin@gmail.com', role=USER, status=ENABLE}
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:49) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Error while adding image
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:37) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'token_uuid' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3931) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:30) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+2020-12-05 06:04:48 [Thread-4] ERROR course.controller.command.impl.SignUpCommand - Error while login user
+com.traulko.course.exception.ServiceException: Error while adding user
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:118) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.SignUpCommand.execute(SignUpCommand.java:41) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding product and image User{userId=null, name='Traulko', surname='Yan', patronymic='Stanislavovich', email='admin@gmail.com', role=USER, status=ENABLE}
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:49) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Error while adding image
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:37) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'token_uuid' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3931) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:30) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+2020-12-05 06:06:26 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-05 06:08:56 [Thread-2] ERROR course.controller.command.impl.SignUpCommand - Error while login user
+com.traulko.course.exception.ServiceException: Error while adding user
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:118) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.SignUpCommand.execute(SignUpCommand.java:41) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding product and image User{userId=null, name='Traulko', surname='Yan', patronymic='Stanislavovich', email='admin@gmail.com', role=USER, status=ENABLE}
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:49) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Error while adding image
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:37) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'token_uuid' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3931) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:30) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+2020-12-05 06:09:28 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-05 06:11:46 [Thread-2] ERROR course.controller.command.impl.SignUpCommand - Error while login user
+com.traulko.course.exception.ServiceException: Error while adding user
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:118) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.SignUpCommand.execute(SignUpCommand.java:41) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding user and token User{userId=null, name='Traulko', surname='Yan', patronymic='Stanislavovich', email='admin@gmail.com', role=USER, status=ENABLE}
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:49) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Error while adding image
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:37) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'token_uuid' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3931) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.EntityTokenDaoImpl.add(EntityTokenDaoImpl.java:30) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:41) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+2020-12-05 06:13:28 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-05 06:13:28 [Thread-2] ERROR course.controller.command.impl.SignUpCommand - Error while login user
+com.traulko.course.exception.ServiceException: Error while adding user
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:118) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.SignUpCommand.execute(SignUpCommand.java:41) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding user and token User{userId=null, name='Ян', surname='Траулько', patronymic='Станиславович', email='admin@gmail.com', role=USER, status=ENABLE}
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:49) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Adding user to users table error
+	at com.traulko.course.dao.impl.UserDaoImpl.add(UserDaoImpl.java:59) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:43) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: java.sql.SQLException: Field 'user_token_id' doesn't have a default value
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.UserDaoImpl.add(UserDaoImpl.java:57) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:43) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+2020-12-05 06:13:57 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-05 06:27:20 [Thread-2] ERROR course.controller.command.impl.SignUpCommand - Error while login user
+com.traulko.course.exception.ServiceException: Error while adding user
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:118) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.SignUpCommand.execute(SignUpCommand.java:41) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding user and token User{userId=null, name='Ян', surname='Траулько', patronymic='Станиславович', email='admin@gmail.com', role=USER, status=ENABLE}
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:49) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Adding user to users table error
+	at com.traulko.course.dao.impl.UserDaoImpl.add(UserDaoImpl.java:59) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:43) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+Caused by: java.sql.SQLException: Field 'user_token_id' doesn't have a default value
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.UserDaoImpl.add(UserDaoImpl.java:57) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addUserAndToken(TransactionManager.java:43) ~[classes/:?]
+	at com.traulko.course.service.impl.UserServiceImpl.addUser(UserServiceImpl.java:113) ~[classes/:?]
+	... 3 more
+2020-12-05 06:27:32 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-05 19:36:01 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 09:41:13 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 09:45:34 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 09:46:37 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 09:47:29 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 09:57:27 [Thread-8] ERROR course.controller.command.impl.AddAccountCommand - Error while adding account
+com.traulko.course.exception.ServiceException: Error while creating account
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:67) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.AddAccountCommand.execute(AddAccountCommand.java:27) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.DaoException: Finding user by email error
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.findByNumber(CreditCardDaoImpl.java:48) ~[classes/:?]
+	at com.traulko.course.service.impl.CreditCardServiceImpl.generateCreditCardNumber(CreditCardServiceImpl.java:24) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:48) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'course.credit' doesn't exist
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.Util.getInstance(Util.java:408) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2020) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.findByNumber(CreditCardDaoImpl.java:40) ~[classes/:?]
+	at com.traulko.course.service.impl.CreditCardServiceImpl.generateCreditCardNumber(CreditCardServiceImpl.java:24) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:48) ~[classes/:?]
+	... 3 more
+2020-12-12 09:58:32 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 09:59:10 [Thread-4] ERROR course.controller.command.impl.AddAccountCommand - Error while adding account
+com.traulko.course.exception.ServiceException: Error while creating account
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:67) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.AddAccountCommand.execute(AddAccountCommand.java:27) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.DaoException: Finding user by email error
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.findByNumber(CreditCardDaoImpl.java:48) ~[classes/:?]
+	at com.traulko.course.service.impl.CreditCardServiceImpl.generateCreditCardNumber(CreditCardServiceImpl.java:24) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:48) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'course.credit' doesn't exist
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.Util.getInstance(Util.java:408) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2020) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.findByNumber(CreditCardDaoImpl.java:40) ~[classes/:?]
+	at com.traulko.course.service.impl.CreditCardServiceImpl.generateCreditCardNumber(CreditCardServiceImpl.java:24) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:48) ~[classes/:?]
+	... 3 more
+2020-12-12 09:59:56 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 10:00:50 [Thread-4] ERROR course.controller.command.impl.AddAccountCommand - Error while adding account
+com.traulko.course.exception.ServiceException: Error while creating account
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:67) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.AddAccountCommand.execute(AddAccountCommand.java:27) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.DaoException: Finding user by email error
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.findByNumber(CreditCardDaoImpl.java:48) ~[classes/:?]
+	at com.traulko.course.service.impl.CreditCardServiceImpl.generateCreditCardNumber(CreditCardServiceImpl.java:24) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:48) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'course.credit' doesn't exist
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.Util.getInstance(Util.java:408) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2020) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.findByNumber(CreditCardDaoImpl.java:40) ~[classes/:?]
+	at com.traulko.course.service.impl.CreditCardServiceImpl.generateCreditCardNumber(CreditCardServiceImpl.java:24) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:48) ~[classes/:?]
+	... 3 more

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="693.0" prefWidth="946.0" style="-fx-background-color: #A3A8FF;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.traulko.course.client.fxml.AccountPage">
+    <children>
+        <Button fx:id="goBackButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Назад">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Text layoutX="36.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о владельце">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <AnchorPane layoutX="36.0" layoutY="92.0" prefHeight="90.0" prefWidth="507.0" style="-fx-background-color: #8386CC;">
+            <children>
+                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ФИО:" />
+                <Text layoutX="14.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статус:" />
+                <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:" />
+                <Text fx:id="fioTextField" layoutX="52.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+                <Text fx:id="statusTextField" layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+                <Text fx:id="emailTextField" layoutX="54.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+            </children>
+        </AnchorPane>
+        <Text layoutX="36.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Информация о счете">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <AnchorPane layoutX="36.0" layoutY="216.0" prefHeight="135.0" prefWidth="507.0" style="-fx-background-color: #8386CC;">
+            <children>
+                <Text layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер счета:" />
+                <Text layoutX="14.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Статус:" />
+                <Text layoutX="14.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Средства:" />
+                <Text fx:id="accountIdTextField" layoutX="94.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+                <Text fx:id="accountStatusTextField" layoutX="60.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+                <Text fx:id="accountMoneyAmountTextField" layoutX="75.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+                <Text layoutX="14.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер карточки:" />
+                <Text fx:id="creditCardNumberTextField" layoutX="117.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+                <Text layoutX="13.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Обслуживается до:" />
+                <Text fx:id="creditCardServiceEndTextField" layoutX="127.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="t" />
+            </children>
+        </AnchorPane>
+        <TableView fx:id="transactionsTable" layoutX="36.0" layoutY="394.0" prefHeight="175.0" prefWidth="507.0">
+            <columns>
+                <TableColumn fx:id="transactionFromAccountColumn" prefWidth="108.79998016357422" text="Со счета" />
+                <TableColumn fx:id="transactionToAccountColumn" prefWidth="114.4000244140625" text="На счет" />
+                <TableColumn fx:id="transactionMoneyAmountColumn" prefWidth="130.39996337890625" text="Количество денег" />
+                <TableColumn fx:id="transactionDateColumn" prefWidth="156.0" text="Дата" />
+            </columns>
+        </TableView>
+        <Text layoutX="36.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Транзакции">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Button fx:id="blockAccountButton" layoutX="37.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Заблокировать">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+      <Button fx:id="unblockAccountButton" layoutX="397.0" layoutY="637.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #8386CC;" text="Разблокировать">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="closeButton" layoutX="172.0" layoutY="587.0" mnemonicParsing="false" style="-fx-background-color: #8386CC;" text="Закрыть">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="tokenTextField" layoutX="78.0" layoutY="636.0" prefHeight="31.0" prefWidth="310.0" />
+      <Text fx:id="tokenField" layoutX="37.0" layoutY="656.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Токен" />
+      <Text fx:id="accountClosedText" layoutX="113.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="СЧЕТ ЗАКРЫТ ">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="moneyAmountTextField" layoutX="568.0" layoutY="92.0" prefHeight="31.0" prefWidth="168.0" />
+      <Button fx:id="fillUpBalanceButton" layoutX="758.0" layoutY="92.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #8386CC;" text="Пополнить">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text layoutX="567.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Перевод на счет">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <TextField fx:id="transferToAccountTextField" layoutX="663.0" layoutY="189.0" prefHeight="31.0" prefWidth="168.0" />
+      <TextField fx:id="transferMoneyAmountTextField" layoutX="663.0" layoutY="233.0" prefHeight="31.0" prefWidth="168.0" />
+      <Button fx:id="makeTransferButton" layoutX="674.0" layoutY="274.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="145.0" style="-fx-background-color: #8386CC;" text="Перевести">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Text layoutX="582.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Номер счета:" />
+      <Text layoutX="614.0" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Сумма:" />
+    </children>
+</AnchorPane>

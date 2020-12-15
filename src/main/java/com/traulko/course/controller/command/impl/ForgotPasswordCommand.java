@@ -1,11 +1,9 @@
 package com.traulko.course.controller.command.impl;
 
-import com.traulko.course.controller.PagePath;
 import com.traulko.course.controller.RequestParameter;
 import com.traulko.course.controller.command.CustomCommand;
 import com.traulko.course.entity.Batch;
 import com.traulko.course.entity.User;
-import com.traulko.course.entity.UserSession;
 import com.traulko.course.exception.ServiceException;
 import com.traulko.course.service.UserService;
 import com.traulko.course.service.impl.UserServiceImpl;

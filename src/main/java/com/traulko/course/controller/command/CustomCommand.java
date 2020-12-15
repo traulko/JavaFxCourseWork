@@ -13,8 +13,8 @@ public interface CustomCommand {
     /**
      * Execute command.
      *
-     * @param request the request
+     * @param requestBatch the request
      * @return the Batch
      */
-    Batch execute(Batch request);
+    Batch execute(Batch requestBatch);
 }

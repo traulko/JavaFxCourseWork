@@ -1,0 +1,39 @@
+2020-12-12 10:15:05 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-12 10:22:39 [Thread-4] ERROR course.controller.command.impl.AddAccountCommand - Error while adding account
+com.traulko.course.exception.ServiceException: Error while creating account
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:67) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.AddAccountCommand.execute(AddAccountCommand.java:27) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.TransactionException: Error while adding account com.traulko.course.entity.Account@74c2b421
+	at com.traulko.course.dao.TransactionManager.addAccountAndCreditCardAndToken(TransactionManager.java:87) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:55) ~[classes/:?]
+	... 3 more
+Caused by: com.traulko.course.exception.DaoException: Error while adding credit card
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.add(CreditCardDaoImpl.java:66) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addAccountAndCreditCardAndToken(TransactionManager.java:72) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:55) ~[classes/:?]
+	... 3 more
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values (5929488636384086, 1702328400000, '972f309881412a64c26abe16c56700d18e852c' at line 1
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.Util.getInstance(Util.java:408) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:944) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3933) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3869) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2524) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2675) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2465) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1912) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2133) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdateInternal(PreparedStatement.java:2067) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeLargeUpdate(PreparedStatement.java:5175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2052) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.CreditCardDaoImpl.add(CreditCardDaoImpl.java:59) ~[classes/:?]
+	at com.traulko.course.dao.TransactionManager.addAccountAndCreditCardAndToken(TransactionManager.java:72) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.addAccount(AccountServiceImpl.java:55) ~[classes/:?]
+	... 3 more

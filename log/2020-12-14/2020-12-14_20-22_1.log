@@ -1,0 +1,23 @@
+2020-12-14 20:21:08 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-14 20:22:01 [Thread-5] ERROR course.controller.command.impl.FindFullAccountManageInfoCommand - Error while finding all user accounts
+com.traulko.course.exception.ServiceException: Error while finding account by number
+	at com.traulko.course.service.impl.AccountServiceImpl.findAccountByNumber(AccountServiceImpl.java:89) ~[classes/:?]
+	at com.traulko.course.controller.command.impl.FindFullAccountManageInfoCommand.execute(FindFullAccountManageInfoCommand.java:36) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:32) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: com.traulko.course.exception.DaoException: Finding account by number error
+	at com.traulko.course.dao.impl.AccountDaoImpl.findByNumber(AccountDaoImpl.java:103) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.findAccountByNumber(AccountServiceImpl.java:87) ~[classes/:?]
+	... 3 more
+Caused by: java.sql.SQLException: No value specified for parameter 1
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:965) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:898) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:887) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:861) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.checkAllParametersSet(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.fillSendPacket(PreparedStatement.java:2245) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.fillSendPacket(PreparedStatement.java:2175) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1995) ~[mysql-connector-java-5.1.48.jar:5.1.48]
+	at com.traulko.course.dao.impl.AccountDaoImpl.findByNumber(AccountDaoImpl.java:95) ~[classes/:?]
+	at com.traulko.course.service.impl.AccountServiceImpl.findAccountByNumber(AccountServiceImpl.java:87) ~[classes/:?]
+	... 3 more

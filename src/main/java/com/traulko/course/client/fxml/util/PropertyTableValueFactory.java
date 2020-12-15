@@ -13,4 +13,12 @@ public class PropertyTableValueFactory {
     public static final String CONVERTER_EUR = "eurValue";
     public static final String CONVERTER_RUB = "rubValue";
     public static final String CONVERTER_CREATION_DATE = "creationDate";
+
+    public static final String ACCOUNT_ID = "accountId";
+    public static final String ACCOUNT_CREATION_DATE = "creationDate";
+    public static final String ACCOUNT_MONEY_AMOUNT = "moneyAmount";
+    public static final String ACCOUNT_STATUS = "status";
+
+    public static final String TRANSACTION_MONEY_AMOUNT = "moneyAmount";
+    public static final String TRANSACTION_DATE = "transactionDate";
 }

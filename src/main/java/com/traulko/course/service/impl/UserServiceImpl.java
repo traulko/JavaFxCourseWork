@@ -44,10 +44,21 @@ public class UserServiceImpl implements UserService {
         Optional<User> optionalUser = Optional.empty();
         try {
             if (UserValidator.isEmailValid(email)) {
-                optionalUser = userDao.findByEmail(email);
+                optionalUser = userDao.findBy(email);
             }
         } catch (DaoException e) {
             throw new ServiceException("Error while getting user by email", e);
+        }
+        return optionalUser;
+    }
+
+    @Override
+    public Optional<User> findUserByAccountNumber(Integer accountNumber) throws ServiceException {
+        Optional<User> optionalUser = Optional.empty();
+        try {
+            optionalUser = userDao.findBy(accountNumber);
+        } catch (DaoException e) {
+            throw new ServiceException("Error while getting user by account number", e);
         }
         return optionalUser;
     }
@@ -138,8 +149,7 @@ public class UserServiceImpl implements UserService {
                     User user = userBuilder.getUser();
                     EntityTokenBuilder entityTokenBuilder = new EntityTokenBuilder();
                     String generatedToken = UUID.randomUUID().toString();
-                    String encryptedToken = CustomCipher.encrypt(generatedToken);
-                    entityTokenBuilder.setTokenUuid(encryptedToken);
+                    entityTokenBuilder.setTokenUuid(generatedToken);
                     EntityToken entityToken = entityTokenBuilder.getToken();
                     result = transactionManager.addUserAndToken(user, encryptedPassword, entityToken);
                     if (result) {
@@ -159,7 +169,7 @@ public class UserServiceImpl implements UserService {
         boolean result = false;
         try {
             if (UserValidator.isEmailValid(email)) {
-                Optional<User> optionalUser = userDao.findByEmail(email);
+                Optional<User> optionalUser = userDao.findBy(email);
                 result = optionalUser.isEmpty();
             }
         } catch (DaoException e) {

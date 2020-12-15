@@ -17,6 +17,12 @@ public class AdminHomePage {
     private Button converterManageButton;
 
     @FXML
+    private Button accountManageButton;
+
+    @FXML
+    private Button findAllTransactionsButton;
+
+    @FXML
     void initialize() {
         goBackButton.setOnAction(event -> {
             goBackButton.getScene().getWindow().hide();
@@ -31,6 +37,16 @@ public class AdminHomePage {
         converterManageButton.setOnAction(actionEvent -> {
             converterManageButton.getScene().getWindow().hide();
             PageManager.goToPage(PagePath.CONVERTER_MANAGE);
+        });
+
+        accountManageButton.setOnAction(actionEvent -> {
+            accountManageButton.getScene().getWindow().hide();
+            PageManager.goToPage(PagePath.ACCOUNTS_MANAGE);
+        });
+
+        findAllTransactionsButton.setOnAction(actionEvent -> {
+            findAllTransactionsButton.getScene().getWindow().hide();
+            PageManager.goToPage(PagePath.TRANSACTIONS);
         });
     }
 }

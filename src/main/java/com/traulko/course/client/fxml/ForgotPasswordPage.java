@@ -18,6 +18,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ForgotPasswordPage {
+    public static final String PASSWORD_REGEX = "^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,16}$";
+    public static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9]+\\.[A-Za-z0-9]+$";
 
     @FXML
     private TextField emailField;
@@ -52,8 +54,8 @@ public class ForgotPasswordPage {
                 String password = passwordField.getText().trim();
                 String passwordRepeat = passwordRepeatField.getText().trim();
                 if ((!email.isEmpty() && !token.isEmpty())) {
-                    if (email.matches(UserValidator.EMAIL_REGEX)) {
-                        if (password.matches(UserValidator.PASSWORD_REGEX) && password.equals(passwordRepeat)) {
+                    if (email.matches(EMAIL_REGEX)) {
+                        if (password.matches(PASSWORD_REGEX) && password.equals(passwordRepeat)) {
                             Map<String, Object> batchMap = new HashMap<>();
                             batchMap.put(RequestParameter.USER_EMAIL, email);
                             batchMap.put(RequestParameter.REGISTRATION_TOKEN, token);

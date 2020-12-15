@@ -1,6 +1,5 @@
 package com.traulko.course.controller.command.impl;
 
-import com.traulko.course.controller.PagePath;
 import com.traulko.course.controller.RequestParameter;
 import com.traulko.course.controller.command.CustomCommand;
 import com.traulko.course.entity.Batch;

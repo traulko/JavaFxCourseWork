@@ -20,7 +20,20 @@ public enum CommandType {
     FIND_CONVERTERS(new FindConvertersCommand()),
     FIND_LATEST_CONVERTER(new FindLatestConverterCommand()),
     ADD_CONVERTER(new AddConverterCommand()),
-    FORGOT_PASSWORD(new ForgotPasswordCommand());
+    FORGOT_PASSWORD(new ForgotPasswordCommand()),
+    FIND_USER_ACCOUNTS(new FindUserAccountsCommand()),
+    ADD_ACCOUNT(new AddAccountCommand()),
+    FIND_ALL_ACCOUNTS(new FindAllAccountsCommand()),
+    FIND_FULL_ACCOUNT_MANAGE_INFO(new FindFullAccountManageInfoCommand()),
+    SAVE_PAGE_MANAGER_HANDLER(new SavePageManagerHandlerCommand()),
+    ACCEPT_CREATION_ACCOUNT(new AcceptCreationAccountCommand()),
+    FIND_ALL_TRANSACTIONS(new FindAllTransactionsCommand()),
+    UNBLOCK_ACCOUNT(new UnblockAccountCommand()),
+    BLOCK_ACCOUNT(new BlockAccountCommand()),
+    CLOSE_ACCOUNT(new CloseAccountCommand()),
+    FILL_ACCOUNT_BALANCE(new FillAccountBalanceCommand()),
+    TRANSFER_TO_ACCOUNT(new TransferToAccountCommand()),
+    TRANSFER_FROM_CARD_TO_CARD(new TransferFromCardToCardCommand());
 
     private final CustomCommand command;
 

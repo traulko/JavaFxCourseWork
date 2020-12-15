@@ -14,6 +14,12 @@ public class UserHomePage {
     private Button currencyConverterButton;
 
     @FXML
+    private Button accountOperationsButton;
+
+    @FXML
+    private Button transferFromCardToCardButton;
+
+    @FXML
     void initialize() {
         goBackButton.setOnAction(event -> {
             goBackButton.getScene().getWindow().hide();
@@ -23,6 +29,16 @@ public class UserHomePage {
         currencyConverterButton.setOnAction(actionEvent -> {
             currencyConverterButton.getScene().getWindow().hide();
             PageManager.goToPage(PagePath.CURRENCY_CONVERTER);
+        });
+
+        transferFromCardToCardButton.setOnAction(actionEvent -> {
+            transferFromCardToCardButton.getScene().getWindow().hide();
+            PageManager.goToPage(PagePath.TRANSFER_FROM_CARD_TO_CARD);
+        });
+
+        accountOperationsButton.setOnAction(actionEvent -> {
+            accountOperationsButton.getScene().getWindow().hide();
+            PageManager.goToPage(PagePath.USER_ACCOUNTS);
         });
     }
 }

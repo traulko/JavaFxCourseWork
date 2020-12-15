@@ -14,7 +14,9 @@ public interface UserDao {
 
     boolean updatePassword(String email, String encryptedPassword) throws DaoException;
 
-    Optional<User> findByEmail(String email) throws DaoException;
+    Optional<User> findBy(String email) throws DaoException;
+
+    Optional<User> findBy(Integer accountNumber) throws DaoException;
 
     Optional<User> findByToken(String token) throws DaoException;
 

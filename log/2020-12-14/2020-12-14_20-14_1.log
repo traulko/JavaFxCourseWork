@@ -1,0 +1,8 @@
+2020-12-14 20:13:02 [Thread-2] INFO  traulko.course.dao.connection.ConnectionPool - Connection pool has been filled
+2020-12-14 20:14:02 [Thread-5] ERROR traulko.course.controller.command.CommandProvider - Incorrect command type find_full_account_manage_page
+java.lang.IllegalArgumentException: No enum constant com.traulko.course.controller.command.type.CommandType.FIND_FULL_ACCOUNT_MANAGE_PAGE
+	at java.lang.Enum.valueOf(Enum.java:273) ~[?:?]
+	at com.traulko.course.controller.command.type.CommandType.valueOf(CommandType.java:12) ~[classes/:?]
+	at com.traulko.course.controller.command.CommandProvider.defineCommand(CommandProvider.java:32) [classes/:?]
+	at com.traulko.course.server.Worker.run(Worker.java:30) [classes/:?]
+	at java.lang.Thread.run(Thread.java:832) [?:?]

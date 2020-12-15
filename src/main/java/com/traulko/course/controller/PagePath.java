@@ -16,6 +16,12 @@ public class PagePath {
     public static final String CONVERTER_MANAGE = "/fxml/convert_manage.fxml";
     public static final String ADD_CONVERTER = "/fxml/add_converter.fxml";
     public static final String FORGOT_PASSWORD = "/fxml/forgot_password.fxml";
+    public static final String USER_ACCOUNTS = "/fxml/user_accounts.fxml";
+    public static final String ACCOUNTS_MANAGE = "/fxml/accounts_manage.fxml";
+    public static final String ACCOUNT_MANAGE = "/fxml/account_manage.fxml";
+    public static final String TRANSACTIONS = "/fxml/transactions.fxml";
+    public static final String ACCOUNT_PAGE = "/fxml/account_page.fxml";
+    public static final String TRANSFER_FROM_CARD_TO_CARD = "/fxml/transfer_from_card_to_card.fxml";
 
     private PagePath() {
     }

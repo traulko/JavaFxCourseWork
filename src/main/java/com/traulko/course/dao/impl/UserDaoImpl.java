@@ -18,15 +18,16 @@ import java.util.Optional;
 public class UserDaoImpl implements UserDao {
     private static final UserDaoImpl INSTANCE = new UserDaoImpl();
 
-    private static final String FIND_USER_BY_EMAIL_AND_PASSWORD = "SELECT user_id, user_email, " +
-            "user_name, user_surname, user_patronymic, user_role, user_status FROM users" +
-            " WHERE user_email = ? AND user_password = ?";
-    private static final String FIND_USER_BY_EMAIL = "SELECT user_id, user_email, " +
-            "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
-            " FROM users WHERE user_email = ?";
+    private static final String FIND_USER = "SELECT user_id, user_email, " +
+            "user_name, user_surname, user_patronymic, user_role, user_status FROM users";
+    private static final String BY_EMAIL_AND_PASSWORD_CONDITION = " where user_email = ? and user_password = ?";
+    private static final String BY_EMAIL_CONDITION = " where user_email = ?";
     private static final String FIND_USER_BY_TOKEN = "SELECT user_id, user_email, " +
             "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
             " FROM users INNER JOIN token ON user_token_id = token_id WHERE token_uuid = ?";
+    private static final String FIND_USER_BY_ACCOUNT_NUMBER = "SELECT user_id, user_email, " +
+            "user_name, user_surname, user_patronymic, user_role, user_status FROM users INNER JOIN " +
+            "account ON user_id = account_user_id WHERE account_id = ?";
     private static final String FIND_ALL = "SELECT user_id, user_email, " +
             "user_password, user_name, user_surname, user_patronymic, user_role, user_status" +
             " FROM users";
@@ -68,7 +69,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Optional<User> findByEmailAndPassword(String email, String password) throws DaoException {
         try (Connection connection = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_EMAIL_AND_PASSWORD)) {
+             PreparedStatement statement = connection.prepareStatement(FIND_USER +
+                     BY_EMAIL_AND_PASSWORD_CONDITION)) {
             statement.setString(1, email);
             statement.setString(2, password);
             ResultSet resultSet = statement.executeQuery();
@@ -96,9 +98,9 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> findByEmail(String email) throws DaoException {
+    public Optional<User> findBy(String email) throws DaoException {
         try (Connection connection = ConnectionPool.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_EMAIL)) {
+             PreparedStatement statement = connection.prepareStatement(FIND_USER + BY_EMAIL_CONDITION)) {
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             Optional<User> userOptional = Optional.empty();
@@ -109,6 +111,23 @@ public class UserDaoImpl implements UserDao {
             return userOptional;
         } catch (SQLException | ConnectionDatabaseException e) {
             throw new DaoException("Finding user by email error", e);
+        }
+    }
+
+    @Override
+    public Optional<User> findBy(Integer accountNumber) throws DaoException {
+        try (Connection connection = ConnectionPool.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_USER_BY_ACCOUNT_NUMBER)) {
+            statement.setInt(1, accountNumber);
+            ResultSet resultSet = statement.executeQuery();
+            Optional<User> userOptional = Optional.empty();
+            if (resultSet.next()) {
+                User user = createUserFromResultSet(resultSet);
+                userOptional = Optional.of(user);
+            }
+            return userOptional;
+        } catch (SQLException | ConnectionDatabaseException e) {
+            throw new DaoException("Finding user by account number error", e);
         }
     }
 

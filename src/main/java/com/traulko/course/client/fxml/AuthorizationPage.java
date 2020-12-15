@@ -63,7 +63,7 @@ public class AuthorizationPage {
                     Batch requestBatch = new Batch(batchMap);
                     Batch responseBatch = ClientConnection.getConnectionResult(requestBatch);
                     String pagePath = responseBatch.getBatchMap().get(RequestParameter.PAGE_PATH).toString();
-                    if (pagePath.equals(PagePath.REGISTRATION)) {
+                    if (pagePath.equals(PagePath.AUTHORIZATION)) {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle(PromptMessages.ERROR);
                         alert.setContentText(PromptMessages.INCORRECT_LOGIN_OR_PASSWORD);
